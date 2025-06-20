@@ -1,0 +1,29 @@
+server:
+  port: 8081
+
+spring:
+  application:
+    name: preprocessor
+  autoconfigure:
+    exclude:
+      - org.springframework.boot.autoconfigure.orm.jpa.HibernateJpaAutoConfiguration
+      - org.springframework.boot.autoconfigure.data.jpa.JpaRepositoriesAutoConfiguration
+  kafka:
+    bootstrap-servers: localhost:29092
+    producer:
+      key-serializer: org.apache.kafka.common.serialization.StringSerializer
+      value-serializer: org.apache.kafka.common.serialization.StringSerializer
+
+rest:
+  api:
+    url: http://localhost:8080/api/
+
+kafka:
+  api:
+    url: http://localhost:8081/api/kafka
+  topic:
+    name: execution_engine
+  
+
+filesystem:
+  path: C:/Users/KumaraswamyThota/Downloads/SpringBootAutomation/ProcessedFilesForExecution/
